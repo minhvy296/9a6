@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<audio id="music" loop>
+    <source src="c:\Users\DELL\Downloads\Phép Màu (From Đàn Cá Gỗ Original Soundtrack).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let music = document.getElementById("music");
+
+// Tạo lớp phủ để user chạm 1 cái
+let overlay = document.createElement("div");
+overlay.innerHTML = "👉 Bấm vào để mở kỷ niệm 9A6 ❤️";
+overlay.style.position = "fixed";
+overlay.style.top = 0;
+overlay.style.left = 0;
+overlay.style.width = "100%";
+overlay.style.height = "100%";
+overlay.style.background = "rgba(0,0,0,0.6)";
+overlay.style.color = "white";
+overlay.style.display = "flex";
+overlay.style.justifyContent = "center";
+overlay.style.alignItems = "center";
+overlay.style.fontSize = "24px";
+overlay.style.zIndex = "9999";
+
+document.body.appendChild(overlay);
+
+// Khi bấm → phát nhạc + vào web
+overlay.onclick = () => {
+    music.play();
+    overlay.remove();
+};
+</script>
+<style></style>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanh Xuân Lớp 9A6</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #d2ffff, #9fb2fc);
+}
+
+/* Intro */
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1;}
+}
+
+/* Section */
+.section {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Gallery */
+.gallery {
+     display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cột */
+    gap: 15px;
+    padding: 10px;
+}
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.caption {
+    padding: 10px;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    display: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Members */
+.members {
+    background: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    color: white;
+    padding: 20px;
+}
+
+       
+    
+</style>
+
+</head>
+
+<body>
+
+<!-- 🌸 INTRO -->
+<div class="intro">
+    <h1>✨ Thanh Xuân Lớp 9A6 ✨</h1>
+    <p>Một thời học sinh – Một đời kỷ niệm</p>
+</div>
+
+ <!-- 📸 GALLERY (ẢNH + CLICK HIỆN INFO) -->
+ <div class="section">
+    
+     <h2>👩‍🏫 Giáo viên chủ nhiệm</h2>
+     <p><b>Nguyễn Thị Mỹ Hiến</b></p>
+     <div class="card" onclick="showInfo(
+                                         'c:\\Users\\DELL\\Downloads\\gen-h-z7693387628284_9e885ead374c11f2a4168015ca83661c.jpg',
+                                         'Nguyễn Thị Mỹ Hiến',
+                                         'Yêu nghề, có trách nghiệm với nghề, dạy giỏi, yêu thương hs'
+                                         )">
+        <img src="c:\Users\DELL\Downloads\gen-h-z7693387628284_9e885ead374c11f2a4168015ca83661c.jpg">
+        <div class="card"> Nguyễn Thị Mỹ Hiến</div>
+    </div>
+    <div class="section"></div>
+     <h2>👨‍🎓 Thành viên lớp 9A6</h2>
+     <div class="gallery"></div>
+         <div class="card" onclick="showInfo(
+                                             'c:\\Users\\DELL\\Downloads\\gen-n-z7693294392774_e7cfa66114c85079cdbfa75575417834.jpg',
+                                             'Sơn Hiếu Quý An',
+                                              'Học sinh vui tính, thích đá bóng ⚽'
+                                                )">       
+        <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7693294392774_e7cfa66114c85079cdbfa75575417834.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+         <div class="caption">Sơn Hiếu Quý An</div>
+        </div>
+        <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294399646_1e6092e154d3b0db1c39e632609045b3.jpg',
+            'Bùi Thuý Vy',
+            'tích cực giam gia các phong trào của lớp, năng động, vui vẻ, hòa đồng'
+        )">
+            <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294399646_1e6092e154d3b0db1c39e632609045b3.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+            <div class="caption">Bùi Thuý Vy</div>
+        </div>
+         <div class="card" onclick="showInfo(
+             'c:\\Users\\DELL\\Downloads\\gen-n-z7693294408053_e7e409592e0be6d9f1a06774b24a4ec7.jpg',
+             'Nguyễn Thành Đạt',
+             'giới thiệu'
+             )">
+         <img src="c:\Users\DELL\Downloads\gen-n-z7693294408053_e7e409592e0be6d9f1a06774b24a4ec7.jpg">
+         <div class="caption">Nguyễn Thành Đạt</div>
+          </div>
+          <div class="card" onclick="showInfo(
+             'c:\\Users\\DELL\\Downloads\\gen-h-z7693294439110_3e5b2bd5a6f3fcb7518c6bd463838a45.jpg',
+             'Trần Bảo Ngọc',
+             'lớp trưởng'
+              )">
+          <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294439110_3e5b2bd5a6f3fcb7518c6bd463838a45.jpg">
+         <div class="caption">Trần Bảo Ngọc</div>
+         </div>
+        <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294397375_ff91a00e20ccb17c9dfd62f8baa50dc7.jpg',
+            'Nguyễn Phúc Hậu',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294397375_ff91a00e20ccb17c9dfd62f8baa50dc7.jpg">
+         <div class="caption">Nguyễn Phúc Hậu</div>
+         </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-n-z7693294411069_d5dfe5c05495995bb28d208b4748317b.jpg',
+            'Nguyễn Minh Vỹ',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7693294411069_d5dfe5c05495995bb28d208b4748317b.jpg">
+         <div class="caption">Nguyễn Minh Vỹ</div>
+         </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294421867_7458fa5f7456e0d4292b2acfd29837d7.jpg',
+            'Trần Trung Vĩnh',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294421867_7458fa5f7456e0d4292b2acfd29837d7.jpg">
+            <div class="caption">Trần Trung Vĩnh</div>
+            </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7694088840991_8c23bfa1223ca3258f6fb910ae5f325c.jpg',
+            'Võ Lê Bích Ngân',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7694088840991_8c23bfa1223ca3258f6fb910ae5f325c.jpg">
+          <div class="caption">Võ Lê Bích Ngân</div>
+         </div>
+         <div class="card" onclick="showInfo('c:\\Users\\DELL\\Downloads\\gen-h-z7693294416626_007f2d62c588e03d2725b3a87e26c53f.jpg',
+            'Quách Thuỷ Tiên',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294416626_007f2d62c588e03d2725b3a87e26c53f.jpg">
+        <div class="caption">Quách Thuỷ Tiên</div>
+         </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-n-z7693294435249_54fc2528606e174f21f04b05a002f890.jpg',
+            'Trần Thanh Tuyền',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7693294435249_54fc2528606e174f21f04b05a002f890.jpg">
+        <div class="caption">Trần Thanh Tuyền</div>
+        </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-n-z7693294431029_e298d2d87fc0dc378f5d22502c65f89e.jpg',
+            'Kim Thuỷ Tiên',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7693294431029_e298d2d87fc0dc378f5d22502c65f89e.jpg">
+         <div class="caption">Kim Thuỷ Tiên</div>
+         </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294421737_b4482b817cf05abce41d89ae5ec3c00b.jpg',
+            'Thái Quan Minh',
+            'Giới thiệu')">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294421737_b4482b817cf05abce41d89ae5ec3c00b.jpg">
+         <div class="caption">Thái Quan Minh</div>
+         </div>
+        <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-n-z7693294398935_67c1736a473f9f1ab57431b1859281c6.jpg',
+            'Thạch Văn Nhựt Hậu',
+            'Giới thiệu'
+            )">
+            <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7693294398935_67c1736a473f9f1ab57431b1859281c6.jpg">
+           <div class="caption">Thạch Văn Nhựt Hậu</div>
+          </div>
+            <div class="card" onclick="showInfo(
+                'c:\\Users\\DELL\\Downloads\\gen-h-z7693294425961_2a28d68f785b8cdf60259248bf09e2f9.jpg',
+                'Huỳnh Phương Anh',
+                'Giới thiệu'
+                )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294425961_2a28d68f785b8cdf60259248bf09e2f9.jpg">
+          <div class="caption">Huỳnh Phương Anh</div>
+         </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-n-z7694101258016_003c1be87809423a0af1fb247093f1c3.jpg',
+            'Nguyễn Nhật Thanh Nguyên',
+            'Giới thiệu'
+            )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-n-z7694101258016_003c1be87809423a0af1fb247093f1c3.jpg">
+          <div class="caption">Nguyễn Nhật Thanh Nguyên</div>
+         </div>
+          <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294388094_e127277782f492ce26336df4a34e86f5.jpg',
+            'Khưu Thị Thảo Ngọc',
+            'Giới thiệu'
+               )">
+            <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294388094_e127277782f492ce26336df4a34e86f5.jpg">
+          <div class="caption">Khưu Thị Thảo Ngọc</div>
+          </div>
+         <div class="card" onclick="showInfo(
+            'c:\\Users\\DELL\\Downloads\\gen-h-z7693294406374_4c738c34ac2b3c1e603a3c469c94d5ba.jpg',
+            'Lai Thanh Trân',
+            'Giới thiệu'
+                  )">
+         <img src="c:\\Users\\DELL\\Downloads\\gen-h-z7693294406374_4c738c34ac2b3c1e603a3c469c94d5ba.jpg">
+          <div class="caption">Lai Thanh Trân</div>
+            </div>
+          <div class="card" onclick="showInfo(
+            'link_ảnh',
+            'Tên',
+            'Giới thiệu')">
+          <img src="link_ảnh">
+          <div class="caption">Tên</div>
+            </div>
+            <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+          <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+          </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+          </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+            <div class="caption">Tên</div>  
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+           <div class="caption">Tên</div>
+         </div>
+          <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+           <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+         </div>
+          <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+          <div class="caption">Tên</div>
+          </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+         </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+         <img src="link_ảnh">
+         <div class="caption">Tên</div>
+          </div>
+            <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+          <img src="link_ảnh">
+          <div class="caption">Tên</div>
+          </div>
+         <div class="card" onclick="showInfo('link_ảnh','Tên','Giới thiệu')">
+    <img src="link_ảnh">
+    <div class="caption">Tên</div>
+         </div>
+    </div>
+
+<!-- 🔍 POPUP INFO -->
+<div class="popup" id="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+        <img id="popup-img">
+        <h3 id="popup-name"></h3>
+        <p id="popup-desc"></p>
+    </div>
+</div>
+
+<!-- 💬 KỶ NIỆM -->
+<div class="section">
+    <div class="members">
+        <h2>📖 Kỷ niệm</h2>
+        <p>Cảm ơn vì đã cùng nhau trưởng thành 💛</p>
+        <p>Mãi nhớ những giờ ra chơi 💛</p>
+        <p>Tuổi học trò là đẹp nhất 💛</p>
+    </div>
+</div>
+
+<!-- ❤️ KẾT -->
+<div class="footer">
+    Dù sau này mỗi người một nơi, nhưng thanh xuân lớp 9A6 sẽ mãi ở trong tim 💖
+</div>
+
+<!-- JS -->
+<script>
+function showInfo(img, name, desc) {
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popup-img").src = img;
+    document.getElementById("popup-name").innerText = name;
+    document.getElementById("popup-desc").innerText = desc;
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
